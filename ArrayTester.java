@@ -1,8 +1,12 @@
 public class ArrayTester{
   public static void main(String[] args) {
-    SuperArray newArr = new SuperArray();
-    System.out.println(newArr.size());
-    System.out.println(newArr.add("test"));
-    System.out.println(newArr.size());
+    SuperArray words = new SuperArray();
+    words.add("kani");
+    words.add("uni");
+    words.add("ebi");
+    for(int i = 0; i < words.size(); i++){
+      System.out.println( words.get(i) );
+    }
+    System.out.println(words.set(0, "glen"));
   }
 }
