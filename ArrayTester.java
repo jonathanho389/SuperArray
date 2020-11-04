@@ -4,9 +4,17 @@ public class ArrayTester{
     words.add("kani");
     words.add("uni");
     words.add("ebi");
-    for(int i = 0; i < words.size(); i++){
-      System.out.println( words.get(i) );
-    }
     System.out.println(words.set(0, "glen"));
+    System.out.println(words.capacity());
+    System.out.println(words.toString());
+    System.out.println(words.isEmpty());
+    words.clear();
+    System.out.println(words.isEmpty());
+    words.add("kani");
+    words.add("uni");
+    words.add("ebi");
+    words.add("glen");
+    System.out.println(words.toString());
+    System.out.println(words.contains("glen"));
   }
 }
