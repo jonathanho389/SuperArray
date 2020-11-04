@@ -71,4 +71,27 @@ public class SuperArray{
     }
     return false;
   }
+  public SuperArray(int initialCapacity){
+    data = new String[initialCapacity];
+    capacity = initialCapacity;
+  }
+  public void add(int index, String element){
+    if(index == capacity){
+      resize();
+    }
+    for(int i = index;i < size;i++){
+      data[i + 1] = data[i];
+    }
+    data[index] = element;
+  }
+  public String remove(int index){
+    String removed = data[index];
+    for(int i = index;i < size;i++){
+      data[i] = data[i - 1];
+      if(i == index){
+        i++;
+      }
+    }
+    return removed;
+  }
 }
