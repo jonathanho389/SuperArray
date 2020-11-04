@@ -11,7 +11,7 @@ public class SuperArray{
   }
 
   public boolean add(String element){
-    for(int i = 0;i < size;i++){
+    for(int i = 0;i < size + 1;i++){
       if(data[i] == null){
         data[i] = element;
         size++;
