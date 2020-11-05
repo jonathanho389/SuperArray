@@ -97,4 +97,20 @@ public class SuperArray{
     data = newArr;
     return removed;
   }
+  public int indexOf(String s){
+    int index = 0;
+    for(int i = 0;i < data.length;i++){
+      if(!s.equals(data[i]) && i == data.length - 1){
+        return -1;
+      }
+      else if(!s.equals(data[i])){
+        continue;
+      }
+      else{
+        index += i;
+        i = data.length;
+      }
+    }
+    return index;
+  }
 }
