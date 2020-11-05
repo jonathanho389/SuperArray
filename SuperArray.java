@@ -86,12 +86,15 @@ public class SuperArray{
   }
   public String remove(int index){
     String removed = data[index];
-    for(int i = index;i < size;i++){
-      data[i] = data[i - 1];
-      if(i == index){
-        i++;
-      }
+    String[] newArr = new String[capacity];
+    for(int i = 0;i < index;i++){
+      newArr[i] = data[i];
     }
+    for(int i = index + 1;i <= size;i++){
+        newArr[i] = data[i];
+      }
+    size--;
+    data = newArr;
     return removed;
   }
 }
