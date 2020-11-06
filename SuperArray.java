@@ -79,26 +79,22 @@ public class SuperArray{
     capacity = initialCapacity;
   }
   public void add(int index, String element){
-    String[] newArr = new String[capacity];
     if(index == capacity){
       resize();
     }
-    for(int i = 0;i < index + 1;i++){
-      newArr[i] = data[i];
-    }
-    newArr[index] = data[index];
-    for(int i = index + 1;i < size - 1;i++){
-      newArr[i] = data[i];
+    for(int i = data.length;i > 0;i--){
+      data[i] = data[i - 1];
     }
     data[index] = element;
   }
+  //look at add and resize
   public String remove(int index){
     String removed = data[index];
     String[] newArr = new String[capacity];
     for(int i = 0;i < index;i++){
       newArr[i] = data[i];
     }
-    for(int i = index + 1;i <= size;i++){
+    for(int i = index;i <= size;i++){
         newArr[i] = data[i];
       }
     size--;
