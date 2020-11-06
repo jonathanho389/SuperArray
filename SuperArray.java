@@ -54,11 +54,14 @@ public class SuperArray{
       if(data[i] == null){
         arr += "";
       }
+      else if(i == size - 1){
+        arr += data[i];
+      }
       else{
-        arr += data[i] + ",";
+        arr += data[i] + ", ";
       }
     }
-    return "[" + arr.substring(0,arr.length() - 1) + "]";
+    return "[" + arr + "]";
   }
   public boolean contains(String s){
     for(int i = 0;i < data.length;i++){
@@ -76,11 +79,16 @@ public class SuperArray{
     capacity = initialCapacity;
   }
   public void add(int index, String element){
+    String[] newArr = new String[capacity];
     if(index == capacity){
       resize();
     }
-    for(int i = index;i < size;i++){
-      data[i + 1] = data[i];
+    for(int i = 0;i < index + 1;i++){
+      newArr[i] = data[i];
+    }
+    newArr[index] = data[index];
+    for(int i = index + 1;i < size - 1;i++){
+      newArr[i] = data[i];
     }
     data[index] = element;
   }
