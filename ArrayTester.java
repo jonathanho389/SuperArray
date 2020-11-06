@@ -1,3 +1,4 @@
+import java.util.Arrays;
 public class ArrayTester{
   public static void main(String[] args) {
     SuperArray words = new SuperArray(10);
@@ -21,6 +22,5 @@ public class ArrayTester{
     System.out.println(words.remove(2));
     System.out.println(words.toString());
     System.out.println(words.indexOf("glen"));
-
   }
 }
