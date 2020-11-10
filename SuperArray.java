@@ -118,7 +118,7 @@ public class SuperArray{
     return newArr;
   }
   public int lastIndexOf(String value){
-    for(int i = size;i > 0;i--){
+    for(int i = size - 1;i >= 0;i--){
       if(data[i] == null){
         i--;
       }
