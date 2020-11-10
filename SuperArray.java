@@ -79,12 +79,14 @@ public class SuperArray{
     capacity = initialCapacity;
   }
   public void add(int index, String element){
+    size++;
     if(index == capacity){
+      resize();
     }
     for(int i = data.length;i > 0;i--){
+      resize();
       data[i] = data[i - 1];
     }
-    size++;
     data[index] = element;
   }
   //look at add and resize
