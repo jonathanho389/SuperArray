@@ -79,15 +79,19 @@ public class SuperArray{
     capacity = initialCapacity;
   }
   public void add(int index, String element){
+    String[] newArr = new String[capacity];
+    if(size >= capacity){
+      resize();
+    }
+    for(int i = 0;i < index;i++){
+      newArr[i] = data[i];
+    }
+    newArr[index] = element;
+    for(int i = index;i < size;i++){
+      newArr[i + 1] = data[i];
+    }
     size++;
-    if(index == capacity){
-      resize();
-    }
-    for(int i = data.length;i > 0;i--){
-      resize();
-      data[i] = data[i - 1];
-    }
-    data[index] = element;
+    data = newArr;
   }
   //look at add and resize
   public String remove(int index){
@@ -112,5 +116,25 @@ public class SuperArray{
       newArr[i] = data[i];
     }
     return newArr;
+  }
+  public int lastIndexOf(String value){
+    for(int i = size;i > 0;i--){
+      if(data[i] == null){
+        i--;
+      }
+      if(data[i].equals(value)){
+        return i;
+      }
+    }
+    return -1;
+  }
+  public boolean equals(SuperArray other){
+    boolean same = false;
+    for(int i = 0;i < data.length;i++){
+      if(data[i] == other.get(i)){
+        same = true;
+      }
+    }
+    return same;
   }
 }
