@@ -4,7 +4,7 @@ public class SuperArray{
   private int capacity;
 
   private void resize(){
-    String[] newArr = new String[data.length * 2];
+    String[] newArr = new String[data.length * 2 + 1];
     for(int i = 0;i < size;i++){
       newArr[i] = data[i];
     }
