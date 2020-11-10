@@ -31,6 +31,12 @@ public class SuperArray{
       return true;
   }
   public String get(int index){
+    if(index < 0){
+      throw new IndexOutOfBoundsException("Index " + index + " cannot be negative");
+    }
+    if(index >= size){
+      throw new IndexOutOfBoundsException("Index " + index + " cannot be greater than size");
+    }
     return data[index];
   }
   public String set(int index, String element){
@@ -75,10 +81,19 @@ public class SuperArray{
     return false;
   }
   public SuperArray(int initialCapacity){
+    if(initialCapacity < 0){
+      throw new IllegalArgumentException("initialCapacity " + initialCapacity + " cannot be negative");
+    }
     data = new String[initialCapacity];
     capacity = initialCapacity;
   }
   public void add(int index, String element){
+    if(index < 0){
+      throw new IndexOutOfBoundsException("Index " + index + " cannot be negative");
+    }
+    if(index >= size){
+      throw new IndexOutOfBoundsException("Index " + index + " cannot be greater than size");
+    }
     String[] newArr = new String[capacity];
     if(size >= capacity){
       resize();
