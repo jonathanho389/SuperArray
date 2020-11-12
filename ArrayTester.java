@@ -5,7 +5,7 @@ public class ArrayTester{
     words.add("kani");
     words.add("ubi");
     words.add("ebi");
-    System.out.println(words.set(0, "glen"));
+    System.out.println(words.set(7, "glen"));
     System.out.println(words.capacity());
     System.out.println(words.toString());
     System.out.println(words.isEmpty());
@@ -17,7 +17,7 @@ public class ArrayTester{
     words.add("glen");
     System.out.println(words.toString());
     System.out.println(words.contains("glen"));
-    words.add(-3, "glen");
+    words.add(3, "glen");
     System.out.println(words.toString());
     System.out.println(words.remove(2));
     System.out.println(words.toString());
