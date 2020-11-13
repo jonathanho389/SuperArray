@@ -3,13 +3,13 @@ public class SuperArray{
   private int size;
   private int capacity;
 
-  private void resize(){
+  public void resize(){
     String[] newArr = new String[data.length * 2 + 1];
     for(int i = 0;i < size;i++){
       newArr[i] = data[i];
     }
     data = newArr;
-    capacity *= 2;
+    capacity = capacity * 2 + 1;
   }
 
   public SuperArray(){
@@ -26,20 +26,20 @@ public class SuperArray{
     return capacity;
   }
   public boolean add(String element){
-    if(size >= capacity){
+    if(size >= data.length){
       resize();
     }
-      data[size] = element;
-      size++;
-      return true;
+    data[size] = element;
+    size++;
+    return true;
   }
 
   public String get(int index){
     if(index < 0){
       throw new IndexOutOfBoundsException("Index " + index + " cannot be negative");
     }
-    if(index >= size){
-      throw new IndexOutOfBoundsException("Index " + index + " cannot be greater than size");
+    if(index >= size()){
+      throw new IndexOutOfBoundsException("Index " + index + " cannot be greater or equal to size");
     }
     return data[index];
   }
@@ -48,8 +48,8 @@ public class SuperArray{
     if(index < 0){
       throw new IndexOutOfBoundsException("Index " + index + " cannot be negative");
     }
-    if(index >= size){
-      throw new IndexOutOfBoundsException("Index " + index + " cannot be greater than size");
+    if(index >= size()){
+      throw new IndexOutOfBoundsException("Index " + index + " cannot be greater or equal to size");
     }
     String original = data[index];
     data[index] = element;
@@ -108,11 +108,11 @@ public class SuperArray{
     if(index < 0){
       throw new IndexOutOfBoundsException("Index " + index + " cannot be negative");
     }
-    if(index >= size){
-      throw new IndexOutOfBoundsException("Index " + index + " cannot be greater than size");
+    if(index >= size()){
+      throw new IndexOutOfBoundsException("Index " + index + " cannot be greater or equal to size");
     }
     String[] newArr = new String[capacity];
-    if(size >= capacity){
+    if(size >= data.length){
       resize();
     }
     for(int i = 0;i < index;i++){
@@ -130,8 +130,8 @@ public class SuperArray{
     if(index < 0){
       throw new IndexOutOfBoundsException("Index " + index + " cannot be negative");
     }
-    if(index >= size){
-      throw new IndexOutOfBoundsException("Index " + index + " cannot be greater than size");
+    if(index >= size()){
+      throw new IndexOutOfBoundsException("Index " + index + " cannot be greater to size");
     }
     String removed = data[index];
     for(int i = index;i < size;i++){
@@ -169,14 +169,17 @@ public class SuperArray{
     }
     return -1;
   }
-  
-  public boolean equals(SuperArray other){
+
+  public boolean equals(SuperArray other) {
     boolean same = false;
-    for(int i = 0;i < data.length;i++){
-      if(data[i] == other.get(i)){
-        same = true;
+    for (int i = 0; i < size; i++) {
+      if (data[i].equals(other.data[i])) {
+        return true;
       }
     }
-    return same;
+    if (size != other.size) {
+      return false;
+    }
+    return true;
   }
 }
