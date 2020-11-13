@@ -35,21 +35,15 @@ public class SuperArray{
   }
 
   public String get(int index){
-    if(index < 0){
-      throw new IndexOutOfBoundsException("Index " + index + " cannot be negative");
-    }
-    if(index >= size()){
-      throw new IndexOutOfBoundsException("Index " + index + " cannot be greater or equal to size");
+    if(index < 0 || index >= size){
+      throw new IndexOutOfBoundsException("Index " + index + " is out of bounds.");
     }
     return data[index];
   }
 
   public String set(int index, String element){
-    if(index < 0){
-      throw new IndexOutOfBoundsException("Index " + index + " cannot be negative");
-    }
-    if(index >= size()){
-      throw new IndexOutOfBoundsException("Index " + index + " cannot be greater or equal to size");
+    if(index < 0 || index >= size){
+      throw new IndexOutOfBoundsException("Index " + index + " is out of bounds.");
     }
     String original = data[index];
     data[index] = element;
@@ -105,11 +99,8 @@ public class SuperArray{
   }
 
   public void add(int index, String element){
-    if(index < 0){
-      throw new IndexOutOfBoundsException("Index " + index + " cannot be negative");
-    }
-    if(index >= size()){
-      throw new IndexOutOfBoundsException("Index " + index + " cannot be greater or equal to size");
+    if(index < 0 || index > size){
+      throw new IndexOutOfBoundsException("Index " + index + " is out of bounds.");
     }
     String[] newArr = new String[capacity];
     if(size >= data.length){
@@ -127,11 +118,8 @@ public class SuperArray{
   }
   //look at add and resize
   public String remove(int index){
-    if(index < 0){
-      throw new IndexOutOfBoundsException("Index " + index + " cannot be negative");
-    }
-    if(index >= size()){
-      throw new IndexOutOfBoundsException("Index " + index + " cannot be greater to size");
+    if(index < 0 || index >= size){
+      throw new IndexOutOfBoundsException("Index " + index + " is out of bounds.");
     }
     String removed = data[index];
     for(int i = index;i < size;i++){
