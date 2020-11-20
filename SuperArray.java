@@ -102,7 +102,7 @@ public class SuperArray{
     if(index < 0 || index > size()){
       throw new IndexOutOfBoundsException("Index " + index + " is out of bounds.");
     }
-    if(size >= data.length){
+    if(size + 1 >= data.length){
       resize();
     }
     String[] newArr = new String[capacity];
@@ -122,8 +122,8 @@ public class SuperArray{
       throw new IndexOutOfBoundsException("Index " + index + " is out of bounds.");
     }
     String removed = data[index];
-    for(int i = index;i < size;i++){
-      data[i] = data [i + 1];
+    for(int i = index;i < size - 1;i++){
+      data[i] = data[i + 1];
     }
     size--;
     return removed;
